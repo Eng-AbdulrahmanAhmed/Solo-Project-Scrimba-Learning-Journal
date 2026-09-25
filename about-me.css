@@ -116,18 +116,20 @@ span{
     font-weight: 600;
     font-size: 0.75rem;
     color: #505050;
-}
+} 
 .blog span{
     font-size: 0.6rem;
     color: black;
 }
-
 .blog img{ 
     width: 100%;
     height: 200px;
     object-fit: cover;
     object-position: center 80%;
     display: block;  
+}
+.blog{
+    padding-block: 1rem;
 }
 .blog1 {
     grid-area: blog1;
@@ -147,4 +149,87 @@ footer{
     color: #D7D7D7 ;
     font-size: 0.75rem;
     text-align: center;
+}
+
+@media (min-width:576px) {
+    main{
+        padding-top: 1rem;
+        display: grid;
+        grid-template-columns: 1fr 1.5fr;
+        grid-template-rows: auto;
+        grid-template-areas:
+        "image title"
+        "main-text main-text"
+        "recent-posts recent-posts"
+        ;
+    }
+    .main-text{
+        margin-top: 0;
+
+    }
+    .recent-posts{
+        margin-block: 2rem;
+        display: grid;
+        grid-template-columns:1fr 1fr;
+        grid-template-rows: auto;
+        grid-template-areas:
+        "span-text span-text"
+        "blog1 blog2"
+        "blog3 .";
+        gap: 1.2rem;
+    }
+    .image-container img{
+        justify-self: center;
+    }
+    .blog{
+        padding: 0;
+    }
+    header{
+        height: 4.5rem;
+        font-size: 1rem;
+    }
+    .home-btn{
+        padding-right: 1rem;
+    }
+    .recent-posts span{
+        grid-area: span-text
+    }
+    .main-text{
+       grid-area: main-text;
+        padding: 2rem;
+        padding-bottom: 0;
+    }
+    .greeting{
+        width: 100%;
+    }
+    .recent-posts{
+        grid-area: recent-posts;
+    }
+}
+@media (min-width: 992px) {
+    main{
+        column-gap: 3rem;         /* more breathing room at large screens */
+        grid-template-columns: 1fr 2.5fr;  /* image column narrower, text wider */
+        padding-top: 3rem;
+    }
+    header {
+        font-size: 1.2rem;
+    }
+    .greeting{
+        font-size: 2.25rem;
+    }
+
+    .about-me-pic{
+        width: 200px;
+    }
+    .img-container{
+        justify-self: end;
+    }
+    .recent-posts{
+        grid-template-columns: repeat(3, 1fr);
+        grid-template-areas:
+        "span-text span-text span-text"
+        "blog1 blog2 blog3";
+        gap: 2rem;
+    }
 }
